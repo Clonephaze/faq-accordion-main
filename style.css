@@ -1,0 +1,145 @@
+/****** Common Css ******/
+:root {
+    font-family: 'Work Sans', sans-serif;
+    --white: hsl(0, 0%, 100%);
+    --LightPink: hsl(279, 100%, 94%);
+    --GrayishPurple: hsl(292, 16%, 49%);
+    --Purple: hsl(281, 83%, 54%);
+    --DarkPurple: hsl(292, 42%, 14%);
+    --transition: all 0.3s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--LightPink); 
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 95vh;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+.background-design {
+    position: absolute;
+    min-height: 300px;
+    min-width: 100vw;
+    z-index: -1;
+    background-image: url('assets/images/background-pattern-desktop.svg');
+    background-color: var(--DarkPurple);
+    background-repeat: no-repeat;
+    background-position: 0%;
+}
+
+.faq-accordion {
+    background-color: var(--white);
+    border-radius: 16px;
+    width: 35vw;
+    position: absolute;
+    top: 175px;
+    padding: 35px;
+    box-shadow: 0 0 15px 1px hsla(293, 16%, 60%, 0.3);
+}
+
+.accordion-header {
+    font-weight: 700;
+    font-size: 1.75rem;
+    min-height: 5em;
+    display: flex;
+    align-items: center;
+}
+
+.accordion-header img {
+    margin-right: 20px;
+}
+
+.accordion-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-item .item-title {
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-width: 100%;
+    font-weight: 600;
+    border: none;
+    justify-content: start;
+    transition: var(--transition), color 0.15s ease;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 8px 8px 0; 
+}
+
+.accordion-item .item-title.closed::after {
+    content: url('assets/images/icon-plus.svg');
+    position: absolute;
+    right: 35px;
+}
+
+.accordion-item .item-title.open::after {
+    content: url('assets/images/icon-minus.svg');
+    position: absolute;
+    right: 35px;
+}
+
+.accordion-item .item-description {
+    color: var(--GrayishPurple);
+    font-weight: 400;
+    overflow: hidden;
+    transition: var(--transition);
+   }
+
+/****** Desktop Only Css ******/
+@media (min-width: 1440px) {
+    .accordion-item .item-title:hover {
+        color: var(--Purple);
+    }
+    
+}
+
+/****** Mobile Only Css ******/
+@media (max-width: 375px) /* this is too small but its for the challenge */ {
+    .accordion-header {
+        font-size: 1.2rem;
+        min-height: 1em;
+    }
+
+    .faq-accordion {
+        width: 90vw;
+    }
+
+    .accordion-item .item-title p {
+        max-width: 85%;
+    }
+}
+
+
+@font-face {
+    font-family: 'Work Sans';
+    src: url('./assets/fonts/WorkSans-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Work Sans Italic';
+    src: url('./assets/fonts/WorkSans-Italic-VariableFont_wght.ttf') format('truetype');
+}
